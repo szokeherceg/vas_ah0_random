@@ -13,8 +13,15 @@ find_package(std_msgs REQUIRED)
 add_executable(random_publisher src/random_publisher.cpp)
 ament_target_dependencies(random_publisher rclcpp std_msgs)
 
+add_executable(random_subscriber src/random_subscriber.cpp)
+ament_target_dependencies(random_subscriber rclcpp std_msgs)
+
 install(TARGETS
   random_publisher
+  DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS
+  random_subscriber
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
